@@ -1,13 +1,16 @@
 import './App.css';
+import Block from "./components/Block";
 
 function App() {
     return (
-        <div>
-            <button className="accordion">Вставляем элемент внутрь/середину массива</button>
-            <div className="panel">
-                <p>Lorem ipsum...</p>
-            </div>
-        </div>
+        <>
+            <Block title="Вставляем элемент внутрь/середину массива"/>
+            <Block title="Группируем массив"/>
+            <Block title="Удаляем из массива"/>
+            <Block title="Меняем элементы массива местами"/>
+            <Block title="Добавляем в массив новый элемент"/>
+        </>
+
     );
 }
 
