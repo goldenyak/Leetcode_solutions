@@ -1,7 +1,19 @@
+import React from 'react';
 import './App.css';
 import Block from "./components/Block";
+import axios from "axios";
 
 function App() {
+
+    // const [title, setTitle] = React.useState('')
+
+    React.useEffect(() => {
+        axios.get('https://614a2f5207549f001755a841.mockapi.io/blocks').then(({data}) => {
+            console.log(data)
+        })
+    }, [])
+
+
     return (
         <>
             <Block title="Вставляем элемент внутрь/середину массива"/>

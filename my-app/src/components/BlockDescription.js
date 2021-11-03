@@ -1,11 +1,11 @@
 import React from "react";
 
-const BlockDescription = () => {
+const BlockDescription = ({title}) => {
     return (
         <div className="panel">
-            <p>Hello, World</p>
+            <p>{title}</p>
         </div>
     )
 };
 
-export default BlockDescription
+export default BlockDescription;
