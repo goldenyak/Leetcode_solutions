@@ -5,24 +5,25 @@ import axios from "axios";
 
 function App() {
 
-    // const [title, setTitle] = React.useState('')
+    const [items, setItems] = React.useState([]) // Товары - берем с сервера mockapi
 
     React.useEffect(() => {
-        axios.get('https://614a2f5207549f001755a841.mockapi.io/blocks').then(({data}) => {
-            console.log(data)
-        })
-    }, [])
+        async function fetchData() {
 
+            const itemsResponse = await axios.get('https://614a2f5207549f001755a841.mockapi.io/blocks')
+
+            setItems(itemsResponse.data)
+            console.log(itemsResponse.data)
+        }
+
+        fetchData()
+
+    }, []) // Запросы на сервак = Получаем данные с сервера.
 
     return (
         <>
-            <Block title="Вставляем элемент внутрь/середину массива"/>
-            <Block title="Группируем массив"/>
-            <Block title="Удаляем из массива"/>
-            <Block title="Меняем элементы массива местами"/>
-            <Block title="Добавляем в массив новый элемент"/>
+            {items.map(element => <Block title={element.title}/>)}
         </>
-
     );
 }
 
